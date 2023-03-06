@@ -35,7 +35,7 @@ tree = app_commands.CommandTree(client)
 
 @tree.command(name = "help", description = "Tutorial of the chatbot", guild=discord.Object(id=729915471113224222)) #Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds.
 async def help_command(interaction):
-    await interaction.response.send_message("I am helping you!")
+    await interaction.response.send_message("/ai One-time conversation without memory \n/ask Continuous conversation with memory \n/erase to wipe the restart conversation \n/model to select chat model ")
 
 @tree.command(name = "erase", description = "Erase conversation memory", guild=discord.Object(id=729915471113224222)) #Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds.
 async def erase_command(interaction):

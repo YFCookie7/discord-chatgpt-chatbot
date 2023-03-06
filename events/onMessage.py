@@ -63,8 +63,9 @@ async def onMessage(client, message, OPENAI_TOKEN):
         return
     if (message.content.split()[0] == "/ask"):
         mode=1
+        await client.change_presence(status=discord.Status.dnd)
         if (len(conversation) == 0):
-            conversation.append({"role": "system", "content": "You are a helpful assistant."})
+            # conversation.append({"role": "system", "content": "You are a helpful assistant."})
             conversation.append({"role": "user", "content": user_prompt})
             response = gpt3pt5turbo.get_chat_response(conversation, OPENAI_TOKEN, mode)
             reply = response.choices[0].message['content']
@@ -78,8 +79,5 @@ async def onMessage(client, message, OPENAI_TOKEN):
         reply = reply + "\n\n(" + str(response["usage"]["total_tokens"]) + " token used)"
         await message.channel.send(reply)
         
-
+        await client.change_presence(status=discord.Status.online)
         return
-    # if (message.content.split()[0] == "/erase"):
-    #     conversation = []
-    #     return

@@ -11,6 +11,6 @@ async def onReady(client, tree):
 
 
 
-    channel = client.get_channel(1072860367526559744)
-    await channel.send("Hello! Bot is ready!")
+    # channel = client.get_channel(1072860367526559744)
+    # await channel.send("Hello! Chatbot is ready!")
 
