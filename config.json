@@ -1,0 +1,11 @@
+{
+    "default_model": "gpt-3.5-turbo",
+    "available_model": [
+        "gpt-3.5-turbo",
+        "gpt-3.5-turbo-0301",
+        "text-davinci-003",
+        "text-davinci-002"
+    ],
+    "test_channel": 1017700772466663487,
+    "chatbot_channel": 1072860367526559744
+}
