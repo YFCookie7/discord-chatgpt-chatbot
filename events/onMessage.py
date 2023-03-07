@@ -34,7 +34,7 @@ async def onMessage(client, message, OPENAI_TOKEN):
             data = json.load(f)
         default_model = data['default_model']
 
-        await client.change_presence(status=discord.Status.dnd)
+        # await client.change_presence(status=discord.Status.dnd)
         
         
 
@@ -62,6 +62,7 @@ async def onMessage(client, message, OPENAI_TOKEN):
         await client.change_presence(status=discord.Status.online)
         return
     if (message.content.split()[0] == "/ask"):
+        print("loading")
         mode=1
         await client.change_presence(status=discord.Status.dnd)
         if (len(conversation) == 0):
@@ -79,5 +80,5 @@ async def onMessage(client, message, OPENAI_TOKEN):
         reply = reply + "\n\n(" + str(response["usage"]["total_tokens"]) + " token used)"
         await message.channel.send(reply)
         
-        await client.change_presence(status=discord.Status.online)
+        # await client.change_presence(status=discord.Status.online)
         return

@@ -1,11 +1,10 @@
 import discord
 
-from discord import app_commands
 
-async def onReady(client, tree):
+async def onReady(client):
     print('Logged in as {0.user}'.format(client))
-    
-    await tree.sync(guild=discord.Object(id=729915471113224222))
+    # await client.change_presence(status=discord.Status.dnd)
+    # await tree.sync(guild=discord.Object(id=729915471113224222))
 
 
 
