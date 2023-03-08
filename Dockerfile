@@ -11,10 +11,10 @@ RUN pip install -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . .
 
-# Set the command to run the bot.py file
-CMD ["python", "discord_bot.py"]
+# Set the command to launch the bot
+CMD ["python", "main.py"]
 
 
-
-#docker build -t discord-bot.image .
-#docker run -d discord-bot.image
+# build note
+#docker build -t discord-bot .
+#docker run -d discord-bot
