@@ -1,5 +1,5 @@
 {
-    "default_model": "text-davinci-003",
+    "default_model": "gpt-3.5-turbo",
     "available_model": [
         "gpt-3.5-turbo",
         "gpt-3.5-turbo-0301",
