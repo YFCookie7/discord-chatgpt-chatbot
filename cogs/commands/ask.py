@@ -1,10 +1,9 @@
 import discord
 from discord.ext import commands
-
 from models import gpt3pt5turbo
-
 from dotenv import load_dotenv
 import os
+
 load_dotenv() 
 OPENAI_TOKEN = os.getenv('OPENAI_TOKEN')
 
