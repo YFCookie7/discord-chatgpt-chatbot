@@ -30,7 +30,7 @@ class Ask(commands.Cog):
         user_prompt = " ".join(args)
 
         mode=1
-        await self.bot.change_presence(status=discord.Status.dnd)
+        # await self.bot.change_presence(status=discord.Status.dnd)
         await ctx.channel.trigger_typing()
         if (len(conversation) == 0):
             # conversation.append({"role": "system", "content": "You are a helpful assistant."})
@@ -45,7 +45,7 @@ class Ask(commands.Cog):
         reply = reply + "\n\n(" + str(response["usage"]["total_tokens"]) + " token used)"
         await ctx.send(reply)
         
-        await self.bot.change_presence(status=discord.Status.online)
+        # await self.bot.change_presence(status=discord.Status.online)
         return
 
 

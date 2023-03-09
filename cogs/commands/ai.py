@@ -29,7 +29,7 @@ class Ai(commands.Cog):
             data = json.load(f)
         default_model = data['default_model']
 
-        await self.bot.change_presence(status=discord.Status.dnd)
+        # await self.bot.change_presence(status=discord.Status.dnd)
         await ctx.channel.trigger_typing()
         try:
             if (default_model=="gpt-3.5-turbo"):
@@ -57,7 +57,7 @@ class Ai(commands.Cog):
         reply = reply + "\n\n(" + str(response["usage"]["total_tokens"]) + " token used)"
         await ctx.channel.send(reply)
 
-        await self.bot.change_presence(status=discord.Status.online)
+        # await self.bot.change_presence(status=discord.Status.online)
         return
 
 
