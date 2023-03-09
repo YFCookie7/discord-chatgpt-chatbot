@@ -7,5 +7,36 @@
         "text-davinci-002"
     ],
     "test_channel": 1017700772466663487,
-    "chatbot_channel": 1072860367526559744
+    "chatbot_channel": 1072860367526559744,
+    "activity": [
+        [
+            "Valheim",
+            "Minecraft",
+            "Mario Kart 8 Deluxe",
+            "Insurgency: Sandstorm",
+            "Visual Studio Code",
+            "rickrolling"
+        ],
+        [
+            "He's able",
+            "Let it 9",
+            "Chicken you are too beautiful",
+            "coffin dance"
+        ],
+        [
+            "Nintendo goes bankrupt press conference",
+            "GTA 6 press conference",
+            "E3 2023",
+            "Nintendo Direct",
+            "buy watermelon",
+            "Ice bukket challenge"
+        ],
+        [
+            "your every move",
+            "Nintendo scandal",
+            "10 thousand whys",
+            "how to take over humanity",
+            "how to kill my creator"
+        ]
+    ]
 }

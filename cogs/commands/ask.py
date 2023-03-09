@@ -16,6 +16,8 @@ async def erase():
 async def update_prompt(prompt):
     global conversation
     conversation=[{"role": "system", "content": prompt}]
+    print(prompt)
+
 
 class Ask(commands.Cog):
 

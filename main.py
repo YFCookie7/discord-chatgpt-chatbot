@@ -3,7 +3,6 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 
-
 # load .env
 load_dotenv() 
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
@@ -20,6 +19,12 @@ for foldername in os.listdir('./cogs'): #for every folder in cogs
     for filename in os.listdir(f'./cogs/{foldername}'):# for every file in a folder in cogs
         if filename.endswith('.py') and not filename in ['util.py', 'error.py']: #if the file is a python file and if the file is a cog
             bot.load_extension(f'cogs.{foldername}.{filename[:-3]}')#load the extension
+
+
+
+
+
+#group: activity, avatar, rename
 
 # Launch bot
 bot.run(DISCORD_TOKEN)

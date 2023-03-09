@@ -16,5 +16,6 @@ CMD ["python", "main.py"]
 
 
 # build note
-#docker build -t discord-bot .
+#docker build -t <user-id>/image-name:tag .
+#docker push <user-id>/image-name:tag .
 #docker run -d discord-bot
