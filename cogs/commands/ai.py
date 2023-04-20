@@ -59,6 +59,15 @@ class Ai(commands.Cog):
 
         # await self.bot.change_presence(status=discord.Status.online)
         return
+    
+    @discord.slash_command(name="private_ask", description="Ask question privately")
+    async def private_ask(self,
+        ctx,
+        user_prompt: discord.Option(discord.SlashCommandOptionType.string)
+    ):
+        response = gpt3pt5turbo.get_chat_response(user_prompt, OPENAI_TOKEN, 0)
+        reply = response.choices[0].message['content']
+        await ctx.respond(reply, ephemeral=True)
 
 
 

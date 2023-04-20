@@ -25,11 +25,12 @@ class Ready(commands.Cog):
             activity_name=random.choice(data['activity'][activity_type])
             
             if(activity_type==0):
-                await self.bot.change_presence(activity=discord.Game(activity_name))
+                # await self.bot.change_presence(activity=discord.Game(activity_name))
+                await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=activity_name))
             elif (activity_type==1):
                 await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=activity_name))
             elif (activity_type==2):
-                await self.bot.change_presence(activity=Activity(name=activity_name, type=ActivityType.streaming, url='https://www.NintendoSucks.com'))
+                await self.bot.change_presence(activity=discord.Activity(name=activity_name, type=discord.ActivityType.streaming, url='https://www.NintendoSucks.com'))
             else:
                 await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=activity_name))           
 
