@@ -54,6 +54,12 @@ class GPT(commands.Cog):
         response = openai.ChatCompletion.create(
             model=GPT.GPT_MODEL, messages=GPT.conversation
         )
+        GPT.conversation.append(
+            {
+                "role": "assistant",
+                "content": response["choices"][0]["message"]["content"],
+            }
+        )
         await ctx.respond(response["choices"][0]["message"]["content"])
 
 
