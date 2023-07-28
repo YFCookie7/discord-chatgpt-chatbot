@@ -12,7 +12,6 @@ openai.api_key = OPENAI_TOKEN
 class GPT(commands.Cog):
     conversation = []
     GPT_MODEL = "gpt-3.5-turbo"
-    MAX_RETRIES = 3
 
     def __init__(self, bot):
         self.bot = bot

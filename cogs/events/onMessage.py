@@ -36,7 +36,7 @@ class Message(commands.Cog):
         Message.conversation = [
             {
                 "role": "system",
-                "content": f"You are a chatbot, you are going to discuss with a given topic, you are free to choose the stance you want to take. your tone should be {tone}. The topic to be discussed is {topic}. Limit your response to less than 50 words each time.",
+                "content": f"You are a chatbot, you are going to debate with a given topic, you are free to choose the stance and convince me. your tone should be {tone}. The topic to be debated is {topic}. Limit your response to less than 40 words each time.",
             }
         ]
 
@@ -44,7 +44,6 @@ class Message(commands.Cog):
     async def on_message(self, message):
         if message.author == self.bot.user:
             return
-        print("qwe")
         if message.content.startswith("[SYN]"):
             payload = message.content[len("[SYN]") :]
             decoded_payload = base64.b64decode(payload).decode("utf-8")
@@ -54,25 +53,35 @@ class Message(commands.Cog):
             response = await Message.getChatResponse()
             channel = self.bot.get_channel(channel_id)
             await channel.send(
-                response["choices"][0]["message"]["content"], silent=True
-            )
-        elif Message.isDiscussion:
-            await asyncio.sleep(20)
-            Message.conversation.append(
-                {
-                    "role": "assistant",
-                    "content": message.content,
-                }
-            )
-            response = await Message.getChatResponse()
-            channel = self.bot.get_channel(channel_id)
-            await channel.send(
-                response["choices"][0]["message"]["content"],
+                f"{response['choices'][0]['message']['content']}",
                 silent=True,
             )
-        os.system("cls")
-        print(Message.conversation)
-        print(response["usage"]["total_tokens"])
+            return
+        if Message.isDiscussion:
+            if message.content.startswith("[DISCUSSION END]"):
+                Message.isDiscussion = False
+                return
+            elif Message.isDiscussion:
+                await asyncio.sleep(20)
+                Message.conversation.append(
+                    {
+                        "role": "assistant",
+                        "content": message.content,
+                    }
+                )
+                response = await Message.getChatResponse()
+                channel = self.bot.get_channel(channel_id)
+                if response["usage"]["total_tokens"] > 1000:
+                    await channel.send(
+                        "[DISCUSSION END]",
+                        silent=True,
+                    )
+                    return
+
+                await channel.send(
+                    f"{response['choices'][0]['message']['content']}",
+                    silent=True,
+                )
 
 
 def setup(bot):
